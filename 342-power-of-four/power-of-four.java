@@ -2,10 +2,11 @@ class Solution {
     public boolean isPowerOfFour(int n) {
         if(n < 1) return false;
 
-        while(n % 4 == 0){
-            n /= 4;
+        if((n & n-1) == 0 && Integer.bitCount(n-1) % 2 == 0){
+            return true;
         }
-        if(n == 1) return true;
-        else return false;
+        else{
+            return false;
+        }
     }
 }
