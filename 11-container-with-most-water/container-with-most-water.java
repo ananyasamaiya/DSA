@@ -6,12 +6,8 @@ class Solution {
             int heights = Integer.min(height[i],height[j]);
             int widths = j - i;
             Max_area = Integer.max(Max_area, (heights * widths));
-            if(height[i] < height[j]){
-                i++;
-            }
-            else{
-                j--;
-            }
+            while(i < j && height[i] <= heights) i++;
+            while(i < j && height[j] <= heights) j--;
         }
         return Max_area;
     }
