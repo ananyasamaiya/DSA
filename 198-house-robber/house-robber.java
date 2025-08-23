@@ -1,12 +1,12 @@
 class Solution {
     public int rob(int[] nums) {
-        if(nums.length == 1) return nums[0];
-        int[] result = new int[nums.length];
-        result[0] = nums[0];
-        result[1] = Integer.max(nums[0], nums[1]);
-        for(int i=2; i<nums.length; i++){
-            result[i] = Integer.max(result[i-1], result[i-2]+ nums[i]);
+        int prev1 = 0;
+        int prev2 = 0;
+        for(int num : nums){
+            int curr = Integer.max(prev1, prev2 + num);
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return result[nums.length-1];
+        return prev1;
     }
 }
