@@ -19,11 +19,8 @@ class Solution {
                     str.append(" ");
                 }
             }
-            int end = str.length() - 1;
-            while(end >=0 && str.charAt(end) == ' '){
-                end--;
-            }
-            list.add(str.substring(0,end+1));
+
+            list.add(str.toString().stripTrailing());
         }
         
 
