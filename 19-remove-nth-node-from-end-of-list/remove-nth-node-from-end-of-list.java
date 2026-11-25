@@ -14,7 +14,7 @@ class Solution {
         ListNode slow = head;
         ListNode fast = head;
         ListNode prev = null;
-        for(int i=0; i<n; i++){
+        for(int i=1; i<=n; i++){
             fast = fast.next;
         }
         while(fast != null){
@@ -22,14 +22,9 @@ class Solution {
             slow = slow.next;
             fast = fast.next;
         }
-        
-        if(prev == null) {
-            head = slow.next;
-        }
-        else{
-            prev.next = slow.next;
-        }
-
+        //f prev == null (meaning fast reached null immediately after the for loop, so the //head itself is the target),
+        if(prev == null) head = head.next;
+        else prev.next = slow.next;
 
         return head;
     }
